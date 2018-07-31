@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
+// TODO
+// Re-render page when going back to main page
+
 
 class BookSearch extends Component {
 
@@ -29,9 +32,6 @@ class BookSearch extends Component {
         // Preference: Reference the books by using 'books' instead of this.props.books
         const { booksSearchResults, onBookShelfChange } = this.props;
         const { query } = this.state
-
-        // console.log(booksSearchResults)
-
 
         return (
 
@@ -71,9 +71,9 @@ class BookSearch extends Component {
                                         <div className="book-shelf-changer">
 
                                             <select
-                                                value={book.shelf ? book.shelf : "none"}
+                                                value={book.shelf}
                                                 onChange={(event) => onBookShelfChange(book, event.target.value)}>
-                                                <option value="move" disabled>Move to...</option>
+                                                <option value="none" disabled>Move to...</option>
                                                 <option value="currentlyReading" >Currently Reading</option>
                                                 <option value="wantToRead">Want to Read</option>
                                                 <option value="read">Read</option>
